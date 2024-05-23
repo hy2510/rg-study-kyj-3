@@ -1,0 +1,101 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+
+      // cloze test 1~3
+      "@cloze-test-01/*": ["src/components/study/cloze-test-01/*"],
+      "@cloze-test-02/*": ["src/components/study/cloze-test-02/*"],
+      "@cloze-test-03/*": ["src/components/study/cloze-test-03/*"],
+
+      // listening activity 1~4
+      "@listening-activity-01/*": [
+        "src/components/study/listening-activity-01/*"
+      ],
+      "@listening-activity-02/*": [
+        "src/components/study/listening-activity-02/*"
+      ],
+      "@listening-activity-03/*": [
+        "src/components/study/listening-activity-03/*"
+      ],
+      "@listening-activity-04/*": [
+        "src/components/study/listening-activity-04/*"
+      ],
+
+      // reading comprehension 1~4
+      "@reading-comprehension-01/*": [
+        "src/components/study/reading-comprehension-01/*"
+      ],
+      "@reading-comprehension-02/*": [
+        "src/components/study/reading-comprehension-02/*"
+      ],
+      "@reading-comprehension-03/*": [
+        "src/components/study/reading-comprehension-03/*"
+      ],
+      "@reading-comprehension-04/*": [
+        "src/components/study/reading-comprehension-04/*"
+      ],
+
+      // summary 1~2
+      "@summary-01/*": ["src/components/study/summary-01/*"],
+      "@summary-02/*": ["src/components/study/summary-02/*"],
+
+      // true or false
+      "@true-or-false/*": ["src/components/study/true-or-false/*"],
+
+      // vocalbulary 1~4
+      "@vocabulary-test-01/*": ["src/components/study/vocabulary-test-01/*"],
+      "@vocabulary-practice-01/*": [
+        "src/components/study/vocabulary-practice-01/*"
+      ],
+      "@vocabulary-test-02/*": ["src/components/study/vocabulary-test-02/*"],
+      "@vocabulary-practice-02/*": [
+        "src/components/study/vocabulary-practice-02/*"
+      ],
+      "@vocabulary-test-03/*": ["src/components/study/vocabulary-test-03/*"],
+      "@vocabulary-practice-03/*": [
+        "src/components/study/vocabulary-practice-03/*"
+      ],
+      "@vocabulary-test-04/*": ["src/components/study/vocabulary-test-04/*"],
+      "@vocabulary-practice-04/*": [
+        "src/components/study/vocabulary-practice-04/*"
+      ],
+
+      // writing activity 1~2
+      "@writing-activity-01/*": ["src/components/study/writing-activity-01/*"],
+      "@writing-activity-02/*": ["src/components/study/writing-activity-02/*"],
+
+      "@configs/*": ["src/configs/*"],
+      "@constants/*": ["src/constants/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@pages/*": ["src/pages/*"],
+      "@services/*": ["src/services/*"],
+      "@stylesheets/*": ["src/stylesheets/*"],
+      "@utils/*": ["src/utils/*"],
+      "@types/*": ["src/types/*"]
+    },
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "downlevelIteration": true,
+    "typeRoots": ["./node_modules/@types", "@types"]
+  },
+  "include": ["src", "project-config.d.ts", "static/speak"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

@@ -1,0 +1,360 @@
+.comment {
+  font-family: 'Rg-B', sans-serif;
+  font-size: 1.1em;
+  color: rgba($color: #000, $alpha: 0.4);
+  padding: 10px 15px;
+  animation-duration: 1s !important;
+  position: fixed;
+}
+@media (pointer: coarse) {
+  .comment {
+    display: none;
+  }
+}
+
+.wordPlayButton {
+  cursor: pointer;
+  width: fit-content;
+  height: 40px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: scale(1);
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  &:active {
+    transform: scale(0.9);
+  }
+  .txtL {
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1.2em;
+    color: rgba($color: #000, $alpha: 0.4);
+    @media (prefers-color-scheme: dark) {
+      color: rgba($color: #fff, $alpha: 0.4);
+    }
+  }
+}
+
+.cardNumber {
+  margin-left: 10px;
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: rgba($color: #000, $alpha: 0.8);
+  font-family: 'Rg-B', sans-serif;
+  font-size: 0.7em;
+}
+
+.testReview {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+  // padding: 20px;
+  .title {
+    font-size: 1.2em;
+    font-family: 'Rg-b', sans-serif;
+    margin: 5px 5px 10px 5px;
+  }
+  .container {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgba($color: #000, $alpha: 0.03);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    .sentence {
+      font-size: 1.4em;
+      font-family: 'Rg-b', sans-serif;
+      // margin: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      align-items: center;
+    }
+  }
+  @mixin buttonStyle {
+    margin: auto;
+    min-width: 150px;
+    width: calc(100% - 50px);
+    text-align: center;
+    border-radius: 12px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 3px solid #000;
+    border-left: 1px solid #000;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 1.2em;
+    font-family: 'Rg-B', sans-serif;
+    padding: 15px 15px;
+    transform: scale(1);
+    transition: all 0.2s;
+  }
+  .nextButton {
+    cursor: pointer;
+    @include buttonStyle;
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+  .deactNextButton {
+    filter: grayscale(1);
+    @include buttonStyle;
+    color: #ddd;
+  }
+}
+
+.reviewAnswer {
+  padding: 5px 10px;
+  border: 2px dotted #ccc;
+  border-radius: 10px;
+  color: #ccc;
+  background-color: #fff;
+  display: inline-block;
+  position: relative;
+  &.currentOrder {
+    background-color: rgba($color: #fff, $alpha: 1);
+    animation: 1s infinite alternate blink;
+    @keyframes blink {
+      0% {
+        border: 2px solid rgba($color: #000, $alpha: 0.1);
+      }
+      100% {
+        border: 2px solid rgba($color: #000, $alpha: 1);
+      }
+    }
+  }
+  input {
+    background-color: transparent;
+    border: none;
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1em;
+    padding: 0 !important;
+    letter-spacing: -0.8px;
+  }
+  .currentInput,
+  .otherInput {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    position: relative;
+    z-index: 2;
+    letter-spacing: -0.8px;
+  }
+  .hintText {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    z-index: 1;
+  }
+}
+
+.clozeTest2 {
+  position: relative;
+  .container {
+    display: grid;
+    gap: 15px;
+  }
+  .questionBox {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: calc(100% - 40px);
+    margin: 0 10px;
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1.4em;
+    line-height: 34px;
+    overflow-y: scroll;
+  }
+  .answerBox {
+    padding: 0 8px;
+    border: 2px dotted transparent;
+    border-radius: 10px;
+    color: #ccc;
+    background-color: #fff;
+    display: inline-block;
+    &.currentOrder {
+      background-color: rgba($color: #fff, $alpha: 1);
+      animation: 1s infinite alternate blink;
+      @keyframes blink {
+        0% {
+          border: 2px solid rgba($color: #000, $alpha: 0.1);
+        }
+        100% {
+          border: 2px solid rgba($color: #000, $alpha: 1);
+        }
+      }
+    }
+    &.correctAnswer {
+      border: none;
+      padding: 0;
+      color: #0066ff;
+    }
+    &.incorrectAnswer {
+      border: none;
+      padding: 0;
+      color: #f77777;
+    }
+    input {
+      background-color: transparent;
+      border: none;
+      font-family: 'Rg-B', sans-serif;
+      font-size: 1em;
+      padding: 0 !important;
+      letter-spacing: -0.8px;
+    }
+    .currentInput,
+    .otherInput {
+      display: flex;
+      height: 40px;
+      align-items: center;
+      .enterButton {
+        cursor: pointer;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        -webkit-tap-highlight-color: transparent;
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          background-color: #000;
+          border-radius: 100px;
+        }
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+}
+
+.clozeTest1 {
+  .container {
+    display: grid;
+    gap: 15px;
+  }
+  .textCard {
+    cursor: pointer;
+    min-width: 200px;
+    width: calc(100% - 24px);
+    min-height: 50px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #fff;
+    box-shadow: #ddd 0 3px;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #000, $alpha: 0.3);
+      border: 2px solid rgba($color: #000, $alpha: 0.3);
+      box-shadow: rgba($color: #000, $alpha: 0.3) 0 3px;
+    }
+    &:hover {
+      transform: scale(1.02);
+      @media (pointer: coarse) {
+        transform: none;
+      }
+    }
+    &.correct {
+      background-color: rgba($color: #289ee4, $alpha: 0.2);
+      border: 2px solid #289ee4;
+      box-shadow: #289ee4 0 3px;
+    }
+    &.incorrect {
+      background-color: rgba($color: #b73133, $alpha: 0.2);
+      border: 2px solid #b73133;
+      box-shadow: #b73133 0 3px;
+    }
+    .awnserText {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 1.4em;
+      max-width: calc(100% - 45px);
+    }
+  }
+  .answers {
+    padding-bottom: 10px;
+    width: 100%;
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 10px;
+    }
+  }
+  .questionBox {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: calc(100% - 40px);
+    margin: 0 10px;
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1.4em;
+    line-height: 34px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 6px;
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($color: #000, $alpha: 0.5);
+      border-radius: 100px;
+    }
+  }
+  .answerBox {
+    padding: 2px 5px;
+    margin: 0 5px 2px 5px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #ccc;
+    display: inline-block;
+    min-width: 80px;
+    height: 34px;
+    text-align: center;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #fff, $alpha: 0.8);
+    }
+    &.correctAnswer {
+      border: 2px solid transparent;
+      color: #0066ff;
+    }
+    &.incorrectAnswer {
+      border: 2px solid transparent;
+      color: #f77777;
+    }
+    .currentInput {
+      display: flex;
+      width: 150px;
+      height: 40px;
+      align-items: center;
+    }
+  }
+}

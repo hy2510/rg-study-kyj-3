@@ -1,0 +1,586 @@
+.comment {
+  font-family: 'Rg-B', sans-serif;
+  font-size: 1.1em;
+  color: rgba($color: #000, $alpha: 0.4);
+  padding: 10px 15px;
+  animation-duration: 1s !important;
+  position: fixed;
+  @media (prefers-color-scheme: dark) {
+    color: rgba($color: #fff, $alpha: 0.4);
+  }
+}
+@media (pointer: coarse) {
+  .comment {
+    display: none;
+  }
+}
+
+.wordPlayButton {
+  cursor: pointer;
+  width: fit-content;
+  height: 40px;
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: scale(1);
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  &:active {
+    transform: scale(0.9);
+  }
+  .txtL {
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1.2em;
+    color: rgba($color: #000, $alpha: 0.4);
+    @media (prefers-color-scheme: dark) {
+      color: rgba($color: #fff, $alpha: 0.4);
+    }
+  }
+}
+
+.cardNumber {
+  margin-left: 10px;
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: rgba($color: #000, $alpha: 0.8);
+  font-family: 'Rg-B', sans-serif;
+  font-size: 0.7em;
+}
+
+.hintButton {
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  color: #d95355;
+  font-family: 'Rg-B', sans-serif;
+  font-size: 0.95em;
+  padding: 12px 20px;
+  background-color: rgba($color: #ddd, $alpha: 0.3);
+  border-radius: 100px;
+  transition: all 0.2s;
+  margin: auto;
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba($color: #000, $alpha: 0.3);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.testReview {
+  .title {
+    font-size: 1.4em;
+    font-family: 'Rg-b', sans-serif;
+    margin: 10px 0 15px 10px;
+  }
+  .container {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgba($color: #000, $alpha: 0.03);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    .sentence {
+      font-size: 1.4em;
+      font-family: 'Rg-b', sans-serif;
+      margin: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      align-items: center;
+    }
+  }
+  @mixin buttonStyle {
+    margin: auto;
+    min-width: 150px;
+    text-align: center;
+    border-radius: 12px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 3px solid #000;
+    border-left: 1px solid #000;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 1.2em;
+    font-family: 'Rg-B', sans-serif;
+    width: fit-content;
+    padding: 12px 20px;
+    transform: scale(1);
+    transition: all 0.2s;
+  }
+  .nextButton {
+    cursor: pointer;
+    @include buttonStyle;
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+  .deactNextButton {
+    filter: grayscale(1);
+    @include buttonStyle;
+    color: #ddd;
+  }
+}
+
+.reviewAnswer {
+  padding: 5px 10px;
+  border: 2px dotted transparent;
+  border-radius: 5px;
+  color: #ccc;
+  background-color: #fff;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s;
+  &.currentOrder {
+    background-color: rgba($color: #fff, $alpha: 1);
+    animation: 1s infinite alternate blink;
+    @keyframes blink {
+      0% {
+        border: 2px solid rgba($color: #000, $alpha: 0.1);
+      }
+      100% {
+        border: 2px solid rgba($color: #000, $alpha: 1);
+      }
+    }
+  }
+  &.correctAnswer {
+    border: none;
+    padding: 0 2px;
+    color: #111;
+    background-color: transparent;
+    @media (prefers-color-scheme: dark) {
+      color: #fff;
+    }
+  }
+  &.incorrectAnswer {
+    border: none;
+    padding: 0 2px;
+    color: #111;
+    background-color: transparent;
+    @media (prefers-color-scheme: dark) {
+      color: #fff;
+    }
+  }
+  input {
+    background-color: transparent;
+    border: none;
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1em;
+    padding: 0 !important;
+    letter-spacing: -0.8px;
+  }
+  .currentInput,
+  .otherInput {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    position: relative;
+    z-index: 2;
+    .enterButton {
+      cursor: pointer;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background-color: #000;
+        border-radius: 100px;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+  .hintText {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    position: absolute;
+    top: 5px;
+    z-index: 1;
+  }
+}
+
+.btnNext {
+  cursor: pointer;
+  min-width: 150px;
+  text-align: center;
+  border-radius: 12px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 3px solid #000;
+  border-left: 1px solid #000;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-size: 1.2em;
+  font-family: 'Rg-B', sans-serif;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  transform: scale(1);
+  transition: all 0.2s;
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.iconArrowUp {
+  width: 24px;
+  height: 24px;
+  background-image: url('/src/assets/images/icons/icon_arrow_up.svg');
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  @media (prefers-color-scheme: dark) {
+    background-image: url('/src/assets/images/icons/icon_arrow_up_white.svg');
+  }
+}
+
+.summaryTest1 {
+  line-height: 1.2;
+  .container {
+    display: grid;
+    gap: 15px;
+  }
+  .textCard {
+    cursor: pointer;
+    min-width: 200px;
+    width: calc(100% - 20px);
+    min-height: 40px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #fff;
+    box-shadow: #ddd 0 3px;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #000000, $alpha: 0.3);
+      border: 2px solid rgba($color: #000000, $alpha: 0.3);
+      box-shadow: rgba($color: #000000, $alpha: 0.3) 0 3px;
+    }
+    &:hover {
+      transform: scale(1.02);
+      @media (pointer: coarse) {
+        transform: none;
+      }
+    }
+    &.correct {
+      background-color: rgba($color: #289ee4, $alpha: 0.2);
+      border: 2px solid #289ee4;
+      box-shadow: #289ee4 0 3px;
+    }
+    &.incorrect {
+      background-color: rgba($color: #b73133, $alpha: 0.2);
+      border: 2px solid #b73133;
+      box-shadow: #b73133 0 3px;
+    }
+    .awnserText {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 1.2em;
+      width: calc(100% - 50px);
+    }
+  }
+  .answers {
+    display: grid;
+    gap: 10px;
+  }
+  .correctTextCard {
+    padding: 5px 15px;
+    border-radius: 10px;
+    &.question {
+      border: 2px dotted #cccccc50;
+      border-radius: 15px;
+      padding: 12px;
+      font-size: 0.9em;
+    }
+    .questionMark {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 1em;
+      text-align: center;
+      animation: 1s infinite alternate blink1;
+      @keyframes blink1 {
+        0% {
+          color: rgba($color: #000, $alpha: 0.3);
+        }
+        100% {
+          color: rgba($color: #000, $alpha: 1);
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+        @keyframes blink1 {
+          0% {
+            color: rgba($color: #fff, $alpha: 0.3);
+          }
+          100% {
+            color: rgba($color: #fff, $alpha: 1);
+          }
+        }
+      }
+    }
+    @mixin answerStyle {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      &:active {
+        transform: scale(0.98);
+      }
+      .playIcon {
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid rgba($color: #000, $alpha: 0.3);
+        font-size: 0.5em;
+        @media (prefers-color-scheme: dark) {
+          border-left: 5px solid rgba($color: #fff, $alpha: 0.5);
+        }
+      }
+      .highlight {
+        color: #0066ff;
+        transform-origin: left 0;
+      }
+    }
+    .correctAnswer {
+      @include answerStyle;
+    }
+    .incorrectAnswer {
+      @include answerStyle;
+      color: rgba($color: #000, $alpha: 0.35);
+      @media (prefers-color-scheme: dark) {
+        color: rgba($color: #fff, $alpha: 0.35);
+      }
+    }
+  }
+  .correctOrders {
+    display: grid;
+    gap: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: rgba($color: #f0f2f5, $alpha: 1);
+    padding: 20px;
+    padding-top: 25px;
+    border-radius: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    max-height: 45vh;
+    box-shadow: 0 3px 10px rgba($color: #000000, $alpha: 0.3);
+    @media (prefers-color-scheme: dark) {
+      background-color: #1a1a1a;
+    }
+    &::-webkit-scrollbar {
+      width: 6px;
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($color: #000, $alpha: 0.5);
+      border-radius: 100px;
+    }
+  }
+  .correctDirection {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    .iconArrowUp {
+      width: 24px;
+      height: 24px;
+      background-image: url('/src/assets/images/icons/icon_arrow_up.svg');
+      background-size: 24px;
+      background-position: center;
+      background-repeat: no-repeat;
+      @media (prefers-color-scheme: dark) {
+        background-image: url('/src/assets/images/icons/icon_arrow_up_white.svg');
+      }
+    }
+  }
+}
+
+.summaryTest2 {
+  line-height: 1.2;
+  .container {
+    display: grid;
+    gap: 15px;
+  }
+  .textCard {
+    cursor: pointer;
+    min-width: 200px;
+    width: calc(100% - 20px);
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #fff;
+    box-shadow: #ddd 0 3px;
+    @media (prefers-color-scheme: dark) {
+      border: 2px solid rgba($color: #000000, $alpha: 0.3);
+      background-color: rgba($color: #000000, $alpha: 0.3);
+      box-shadow: rgba($color: #000000, $alpha: 0.3) 0 3px;
+    }
+    &:hover {
+      transform: scale(1.02);
+      @media (pointer: coarse) {
+        transform: none;
+      }
+    }
+    &.correct {
+      background-color: rgba($color: #289ee4, $alpha: 0.2);
+      border: 2px solid #289ee4;
+      box-shadow: #289ee4 0 3px;
+    }
+    &.incorrect {
+      background-color: rgba($color: #b73133, $alpha: 0.2);
+      border: 2px solid #b73133;
+      box-shadow: #b73133 0 3px;
+    }
+    .awnserText {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 1.2em;
+      max-width: calc(100% - 45px);
+    }
+  }
+  .answers {
+    max-height: 30vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 10px;
+    &::-webkit-scrollbar {
+      width: 6px;
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($color: #000, $alpha: 0.5);
+      border-radius: 100px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: stretch;
+      justify-items: center;
+      gap: 10px;
+      padding: 0 10px;
+    }
+  }
+  .questionBox {
+    width: calc(100% - 40px);
+    padding: 20px;
+    background-color: rgba($color: #fff, $alpha: 0.6);
+    border-radius: 15px;
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1.2em;
+    line-height: 38px;
+    max-height: 45vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #000, $alpha: 0.3);
+    }
+    &::-webkit-scrollbar {
+      width: 6px;
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($color: #000, $alpha: 0.5);
+      border-radius: 100px;
+    }
+    .answerBox {
+      min-width: 100px;
+      padding: 5px 30px;
+      border: 2px dotted #ccc;
+      border-radius: 10px;
+      margin: 0 5px;
+      color: #ccc;
+      &.currentOrder {
+        border: 2px solid #000;
+        color: #000;
+        background-color: #fff;
+        animation: 0.8s infinite alternate blink;
+        @keyframes blink {
+          0% {
+            border: 2px solid rgba($color: #000, $alpha: 0.1);
+          }
+          100% {
+            border: 2px solid rgba($color: #000, $alpha: 1);
+          }
+        }
+      }
+      &.correctAnswer {
+        border: none;
+        padding: 0;
+        color: #0066ff;
+      }
+      &.incorrectAnswer {
+        border: none;
+        padding: 0;
+        color: #f77777;
+      }
+    }
+    .word {
+      display: inline-block;
+      padding-right: 7px;
+    }
+  }
+  .correctDirection {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+  }
+  .btnNext {
+    cursor: pointer;
+    min-width: 150px;
+    text-align: center;
+    border-radius: 12px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 3px solid #000;
+    border-left: 1px solid #000;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 1.2em;
+    font-family: 'Rg-B', sans-serif;
+    width: fit-content;
+    padding: 15px 20px;
+    margin: auto;
+    transform: scale(1);
+    transition: all 0.2s;
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}

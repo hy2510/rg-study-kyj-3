@@ -1,0 +1,403 @@
+.comment {
+  font-family: 'Rg-B', sans-serif;
+  font-size: 1.1em;
+  color: rgba($color: #000, $alpha: 0.4);
+  padding: 10px 15px;
+  animation-duration: 1s !important;
+  position: fixed;
+  @media (prefers-color-scheme: dark) {
+    color: rgba($color: #fff, $alpha: 0.4);
+  }
+}
+@media (pointer: coarse) {
+  .comment {
+    display: none;
+  }
+}
+
+.wordPlayButton {
+  cursor: pointer;
+  width: fit-content;
+  height: 40px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: scale(1);
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  &:active {
+    transform: scale(0.9);
+  }
+  .txtL {
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1.6em;
+  }
+}
+
+.wordPlayButton2 {
+  cursor: pointer;
+  width: fit-content;
+  min-height: 40px;
+  margin: 12px 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: scale(1);
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  &:active {
+    transform: scale(0.9);
+  }
+  .txtL {
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1.2em;
+    line-height: 1.2;
+  }
+}
+
+.cardNumber {
+  margin-left: 10px;
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: rgba($color: #000, $alpha: 0.8);
+  font-family: 'Rg-B', sans-serif;
+  font-size: 0.7em;
+}
+
+.readingComprehension1 {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    gap: 20px;
+  }
+  .imageCard {
+    cursor: pointer;
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 200px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    background-color: #fff;
+    box-shadow: #ddd 0 3px;
+    @media (prefers-color-scheme: dark) {
+      border: 2px solid rgba($color: #000, $alpha: 0.3);
+      box-shadow: rgba($color: #000, $alpha: 0.3) 0 3px;
+    }
+    &:hover {
+      transform: scale(1.02);
+      @media (pointer: coarse) {
+        transform: none;
+      }
+    }
+    &.correct {
+      background-color: rgba($color: #289ee4, $alpha: 0.2);
+      border: 2px solid #289ee4;
+      box-shadow: #289ee4 0 3px;
+    }
+    &.incorrect {
+      background-color: rgba($color: #b73133, $alpha: 0.2);
+      border: 2px solid #b73133;
+      box-shadow: #b73133 0 3px;
+    }
+    .txtL {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 2.5em;
+    }
+    .cardNumberPosition {
+      position: absolute;
+      top: 15px;
+      left: 10px;
+    }
+  }
+}
+
+.readingComprehension2 {
+  .container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+  }
+  .questionBox {
+    width: calc(100% - 40px);
+    padding: 20px;
+    background-color: rgba($color: #fff, $alpha: 0.6);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #000, $alpha: 0.3);
+    }
+    .wordImage {
+      display: flex;
+      max-width: 280px;
+      overflow: hidden;
+      border-radius: 38px;
+      img {
+        border-radius: 20px;
+      }
+    }
+    .wordText {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 15px 0;
+    }
+  }
+  .textCard {
+    min-width: 200px;
+    width: calc(100% - 20px);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #fff;
+    box-shadow: #ddd 0 3px;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #000000, $alpha: 0.3);
+      border: 2px solid rgba($color: #000000, $alpha: 0.3);
+      box-shadow: rgba($color: #000000, $alpha: 0.3) 0 3px;
+    }
+    &:hover {
+      transform: scale(1.02);
+      @media (pointer: coarse) {
+        transform: none;
+      }
+    }
+    &.correct {
+      background-color: rgba($color: #289ee4, $alpha: 0.2);
+      border: 2px solid #289ee4;
+      box-shadow: #289ee4 0 3px;
+    }
+    &.incorrect {
+      background-color: rgba($color: #b73133, $alpha: 0.2);
+      border: 2px solid #b73133;
+      box-shadow: #b73133 0 3px;
+    }
+    .awnserText {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 1.5em;
+    }
+    .enterButton {
+      cursor: pointer;
+      display: inline-block;
+      margin-left: auto;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        background-color: rgba($color: #000, $alpha: 0.8);
+        border-radius: 100px;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+  .answers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: stretch !important;
+    place-items: center;
+    gap: 20px;
+  }
+}
+
+.readingComprehension3 {
+  .container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: start;
+    gap: 20px;
+  }
+  .questionImage {
+    background-color: rgba($color: #fff, $alpha: 0.6);
+    border-radius: 33px;
+    display: flex;
+    max-width: 280px;
+    overflow: hidden;
+    margin-top: 20px;
+    img {
+      border-radius: 33px;
+    }
+  }
+  .questionText {
+    font-family: 'Rg-b', sans-serif;
+    font-size: 1.6em;
+  }
+  .textCard {
+    cursor: pointer;
+    min-width: 200px;
+    width: calc(100% - 20px);
+    min-height: 60px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    padding: 0 10px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #fff;
+    box-shadow: #ddd 0 3px;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #000, $alpha: 0.3);
+      border: 2px solid rgba($color: #000, $alpha: 0.3);
+      box-shadow: rgba($color: #000, $alpha: 0.3) 0 3px;
+    }
+    &:hover {
+      transform: scale(1.02);
+      @media (pointer: coarse) {
+        transform: none;
+      }
+    }
+    &.correct {
+      background-color: rgba($color: #289ee4, $alpha: 0.2);
+      border: 2px solid #289ee4;
+      box-shadow: #289ee4 0 3px;
+    }
+    &.incorrect {
+      background-color: rgba($color: #b73133, $alpha: 0.2);
+      border: 2px solid #b73133;
+      box-shadow: #b73133 0 3px;
+    }
+    .awnserText {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 1.5em;
+    }
+    .enterButton {
+      cursor: pointer;
+      display: inline-block;
+      margin-left: auto;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        background-color: rgba($color: #000, $alpha: 0.8);
+        border-radius: 100px;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+  .answers {
+    display: grid;
+    gap: 10px;
+  }
+}
+
+.readingComprehension4 {
+  .container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    display: grid;
+    gap: 20px;
+  }
+  .questionText {
+    font-family: 'Rg-b', sans-serif;
+    font-size: 1.6em;
+    margin: 15px 0;
+  }
+  .textCard {
+    cursor: pointer;
+    width: calc(100% - 20px);
+    min-height: 50px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #fff;
+    box-shadow: #ddd 0 3px;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #000000, $alpha: 0.3);
+      border: 2px solid rgba($color: #000000, $alpha: 0.3);
+      box-shadow: rgba($color: #000000, $alpha: 0.3) 0 3px;
+    }
+    &:hover {
+      transform: scale(1.02);
+      @media (pointer: coarse) {
+        transform: none;
+      }
+    }
+    &.correct {
+      background-color: rgba($color: #289ee4, $alpha: 0.2);
+      border: 2px solid #289ee4;
+      box-shadow: #289ee4 0 3px;
+    }
+    &.incorrect {
+      background-color: rgba($color: #b73133, $alpha: 0.2);
+      border: 2px solid #b73133;
+      box-shadow: #b73133 0 3px;
+    }
+    .awnserText {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 1.2em;
+    }
+  }
+  .answers {
+    display: grid;
+    gap: 10px;
+  }
+}

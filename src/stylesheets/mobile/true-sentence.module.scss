@@ -1,0 +1,76 @@
+.wordPlayButton {
+  cursor: pointer;
+  width: fit-content;
+  height: 40px;
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: scale(1);
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  &:active {
+    transform: scale(0.9);
+  }
+  .txtL {
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: rgba($color: #000, $alpha: 0.4);
+    @media (prefers-color-scheme: dark) {
+      color: rgba($color: #fff, $alpha: 0.4);
+    }
+  }
+}
+
+.trueSentencePopup {
+  line-height: 1.2;
+  .title {
+    font-size: 1.2em;
+    font-family: 'Rg-b', sans-serif;
+    margin: 10px 0 15px 10px;
+  }
+  .container {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgba($color: #000, $alpha: 0.03);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #fff, $alpha: 0.03);
+    }
+    .sentence {
+      font-size: 1.2em;
+      font-family: 'Rg-b', sans-serif;
+      margin: 0 15px;
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+  }
+  .nextButton {
+    cursor: pointer;
+    margin: auto;
+    min-width: 150px;
+    width: calc(100% - 50px);
+    text-align: center;
+    width: calc(100% - 34px);
+    text-align: center;
+    border-radius: 12px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 3px solid #000;
+    border-left: 1px solid #000;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 1.2em;
+    font-family: 'Rg-B', sans-serif;
+    padding: 15px 15px;
+    transform: scale(1);
+    transition: all 0.2s;
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}

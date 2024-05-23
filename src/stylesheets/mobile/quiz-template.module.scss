@@ -1,0 +1,203 @@
+@mixin itemPositionCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin darkMode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+$quizHeaderHeight: 60px;
+
+// 퀴즈템플릿
+.quizTemplate {
+  width: 100vw;
+  height: calc(
+    100dvh - (env(safe-area-inset-top) + env(safe-area-inset-bottom))
+  );
+  overflow: hidden;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  &::before {
+    content: '';
+    @media (orientation: landscape) {
+      content: 'This place is a bit narrow. To study, please rotate the screen vertically. \A 여기는 좀 좁습니다. 학습을 하려면 화면을 세로로 돌려주세요. \A Nơi này hơi chật. Để học, vui lòng xoay màn hình theo chiều dọc. \A 这个地方有点狭窄。为了学习，请把屏幕竖起来。 \A ここは少し狭いです。学習するために、画面を縦に回してください。';
+      white-space: pre;
+      text-align: center;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($color: #000000, $alpha: 0.8);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+    }
+  }
+}
+
+// 퀴즈헤더
+.quizHeader {
+  height: $quizHeaderHeight;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  margin: 0 20px;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  @media (prefers-color-scheme: dark) {
+    color: #ffffff;
+  }
+  .quizHeaderCol1 {
+    display: flex;
+    align-items: center;
+    .quizNumber {
+      width: fit-content;
+      height: 40px;
+      font-family: 'Rg-B', sans-serif;
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      .attempts {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-left: 5px;
+        margin-bottom: 2px;
+        padding: 3px 5px;
+        border-radius: 5px;
+        .txtL {
+          padding-top: 2px;
+          font-size: 0.9em;
+          color: #b73133;
+        }
+      }
+    }
+    .qMark {
+      width: 150px;
+      height: 150px;
+      background-image: url('/src/assets/images/icons/icon_q_mark_light.svg');
+      background-position: center;
+      background-size: 150px;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: -45px;
+      left: -55px;
+      z-index: 0;
+    }
+  }
+  .quizHeaderCol2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .quizTimer {
+      font-size: 1.2em;
+      font-family: 'Rg-B', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      height: 40px;
+      .iconTimer {
+        $size: 24px;
+        width: $size;
+        height: $size;
+        background-image: url('/src/assets/images/icons/icon_timer.svg');
+        background-repeat: no-repeat;
+        background-size: $size;
+        background-position: center -0.5px;
+        @media (prefers-color-scheme: dark) {
+          background-image: url('/src/assets/images/icons/icon_timer_white.svg');
+        }
+      }
+    }
+  }
+  .quizHeaderCol3 {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    .openMenuButton {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('/src/assets/images/icons/icon_hbg_menu_black.svg');
+      background-repeat: no-repeat;
+      background-size: 22px;
+      background-position: bottom 12px right 2px;
+      @media (prefers-color-scheme: dark) {
+        background-image: url('/src/assets/images/icons/icon_hbg_menu_white.svg');
+      }
+    }
+  }
+}
+
+// 퀴즈바디
+.quizBody {
+  width: calc(100% - 40px);
+  max-width: 900px;
+  height: calc(
+    100dvh -
+      (
+        $quizHeaderHeight + env(safe-area-inset-top) +
+          env(safe-area-inset-bottom)
+      )
+  );
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .container {
+    width: 100%;
+    min-height: 450px;
+    background-color: rgba($color: #000, $alpha: 0.05);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    margin-bottom: $quizHeaderHeight;
+    padding: 15px;
+    border-radius: 20px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  @media (pointer: coarse) {
+    .container {
+      margin-bottom: $quizHeaderHeight;
+    }
+  }
+  @include darkMode {
+    .container {
+      color: #ffffff;
+      background-color: rgba($color: #fff, $alpha: 0.05);
+    }
+  }
+}
+
+.btnDelete {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  background-color: rgba($color: #000, $alpha: 0.15);
+  background-image: url('/src/assets/images/ebook/icon_delete_white.svg');
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}

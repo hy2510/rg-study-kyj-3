@@ -1,0 +1,214 @@
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+  &:hover {
+    color: #535bf2;
+  }
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  font-size: 18px;
+  letter-spacing: -0.8px;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  background-color: #1a1a1a;
+  @media screen and (max-width: 375px) {
+    font-size: 15px;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.9em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  &:active {
+    transform: scale(0.96);
+  }
+}
+button:focus,
+button:focus-visible {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+input:focus {
+  outline: none;
+}
+
+.slide-in-right {
+  -webkit-animation: slide-in-right 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both !important;
+  animation: slide-in-right 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both !important;
+}
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  -webkit-animation: slide-in-left 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both !important;
+  animation: slide-in-left 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both !important;
+}
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-500px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.slide-in-bottom {
+  -webkit-animation: slide-in-bottom 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-bottom 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.slide-out-bottom {
+  -webkit-animation: slide-out-bottom 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: slide-out-bottom 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+@-webkit-keyframes slide-out-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+  }
+}
+@keyframes slide-out-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+  }
+}
+
+.t {
+  transform-origin: top left;
+  line-height: 1;
+  position: absolute;
+  transform: scale(0.25);
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.d-none {
+  display: none;
+}
+
+.animate__fadeInRight,
+.animate__fadeInLeft,
+.animate__fadeIn,
+.animate__fadeOut,
+.animate__flipInX {
+  animation-duration: 0.3s !important;
+}
+
+.animate__slideInUp,
+.animate__slideInLeft,
+.animate__slideInRight,
+.animate__slideOutRight {
+  animation-duration: 0.2s !important;
+}
+
+.animate__headShake {
+  animation-duration: 0.8s !important;
+}
+
+.screen-block {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+// 라이드모드
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #1a1a1a;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

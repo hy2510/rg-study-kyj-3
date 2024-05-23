@@ -1,0 +1,388 @@
+.comment {
+  font-family: 'Rg-B', sans-serif;
+  font-size: 1.1em;
+  color: rgba($color: #000, $alpha: 0.4);
+  padding: 10px 15px;
+  animation-duration: 1s !important;
+  position: fixed;
+  @media (prefers-color-scheme: dark) {
+    color: rgba($color: #fff, $alpha: 0.4);
+  }
+}
+@media (pointer: coarse) {
+  .comment {
+    display: none;
+  }
+}
+
+.wordPlayButton {
+  cursor: pointer;
+  width: fit-content;
+  height: 40px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: scale(1);
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  &:active {
+    transform: scale(0.9);
+  }
+  .txtL {
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1.4em;
+    color: rgba($color: #000, $alpha: 0.4);
+    @media (prefers-color-scheme: dark) {
+      color: rgba($color: #fff, $alpha: 0.4);
+    }
+  }
+}
+
+.wordPlayButton2 {
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  transform: scale(1);
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  &:active {
+    transform: scale(0.9);
+  }
+  .txtL {
+    font-family: 'Rg-B', sans-serif;
+    font-size: 1.4em;
+  }
+}
+
+.cardNumber {
+  margin-left: 10px;
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: rgba($color: #000, $alpha: 0.8);
+  font-family: 'Rg-B', sans-serif;
+  font-size: 0.7em;
+}
+
+.listeningActivity1 {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .wordCard {
+    cursor: pointer;
+    width: calc((100% / 3) - 20px);
+    height: fit-content;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    border: 2px solid #ddd;
+    box-shadow: #ddd 0 3px;
+    position: relative;
+    @media (prefers-color-scheme: dark) {
+      border: 2px solid rgba($color: #000, $alpha: 0.3);
+      box-shadow: rgba($color: #000, $alpha: 0.3) 0 3px;
+    }
+    &:hover {
+      transform: scale(1.02);
+      @media (pointer: coarse) {
+        transform: none;
+      }
+    }
+    &.done {
+      opacity: 0.5;
+      cursor: default !important;
+      pointer-events: none;
+      &:hover {
+        transform: scale(1);
+        @media (pointer: coarse) {
+          transform: none;
+        }
+      }
+    }
+    &.correct {
+      border: 2px solid #289ee4;
+      box-shadow: #289ee4 0 3px;
+    }
+    &.incorrect {
+      border: 2px solid #b73133;
+      box-shadow: #b73133 0 3px;
+    }
+    img {
+      width: 100%;
+    }
+    .word {
+      font-family: 'Rg-B';
+      font-size: 2em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      color: #000;
+    }
+    .wordBlock {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($color: #fff, $alpha: 0.6);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+    }
+  }
+}
+
+.listeningActivity2 {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .wordCard {
+    cursor: pointer;
+    width: calc((100% / 3) - 20px);
+    height: fit-content;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: #ddd 0 3px;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #000, $alpha: 0.3);
+      border: 2px solid rgba($color: #000, $alpha: 0.3);
+      box-shadow: rgba($color: #000, $alpha: 0.3) 0 3px;
+    }
+    &:hover {
+      transform: scale(1.02);
+      @media (pointer: coarse) {
+        transform: none;
+      }
+    }
+    .txtL {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 2.5em;
+    }
+    &.done {
+      opacity: 0.3;
+      cursor: default !important;
+      pointer-events: none;
+      &:hover {
+        transform: scale(1);
+        @media (pointer: coarse) {
+          transform: none;
+        }
+      }
+    }
+    &.correct {
+      background-color: rgba($color: #289ee4, $alpha: 0.2);
+      border: 2px solid #289ee4;
+      box-shadow: #289ee4 0 3px;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    &.incorrect {
+      background-color: rgba($color: #b73133, $alpha: 0.2);
+      border: 2px solid #b73133;
+      box-shadow: #b73133 0 3px;
+    }
+  }
+}
+
+.listeningActivity3 {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    gap: 20px;
+  }
+  .imageCard {
+    cursor: pointer;
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 200px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ddd;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    box-shadow: #ddd 0 3px;
+    @media (prefers-color-scheme: dark) {
+      border: 2px solid rgba($color: #000, $alpha: 0.3);
+      box-shadow: rgba($color: #000, $alpha: 0.3) 0 3px;
+      background-color: rgba($color: #000, $alpha: 0.3);
+    }
+    &:hover {
+      transform: scale(1.02);
+      @media (pointer: coarse) {
+        transform: none;
+      }
+    }
+    &.correct {
+      background-color: rgba($color: #289ee4, $alpha: 0.2);
+      border: 2px solid #289ee4;
+      box-shadow: #289ee4 0 3px;
+    }
+    &.incorrect {
+      background-color: rgba($color: #b73133, $alpha: 0.2);
+      border: 2px solid #b73133;
+      box-shadow: #b73133 0 3px;
+    }
+    .txtL {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 2.5em;
+    }
+    .cardNumberPosition {
+      position: absolute;
+      top: 15px;
+      left: 10px;
+    }
+  }
+}
+
+.listeningActivity4 {
+  .container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+  }
+  .questionBox {
+    width: calc(100% - 40px);
+    padding: 20px;
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #000, $alpha: 0.3);
+    }
+    img {
+      border-radius: 20px;
+    }
+  }
+  .soundCard {
+    min-width: 200px;
+    width: 100%;
+    min-height: 80px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    background-color: #fff;
+    box-shadow: #ddd 0 3px;
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba($color: #000000, $alpha: 0.3);
+      border: 2px solid rgba($color: #000000, $alpha: 0.3);
+      box-shadow: rgba($color: #000000, $alpha: 0.3) 0 3px;
+    }
+    &:hover {
+      transform: scale(1.02);
+      @media (pointer: coarse) {
+        transform: none;
+      }
+    }
+    &.correct {
+      background-color: rgba($color: #289ee4, $alpha: 0.2);
+      border: 2px solid #289ee4;
+      box-shadow: #289ee4 0 3px;
+    }
+    &.incorrect {
+      background-color: rgba($color: #b73133, $alpha: 0.2);
+      border: 2px solid #b73133;
+      box-shadow: #b73133 0 3px;
+    }
+    .txtL {
+      font-family: 'Rg-B', sans-serif;
+      font-size: 2.5em;
+    }
+    .cardNumberPosition {
+      position: absolute;
+      top: calc(50% - 12px);
+      left: 10px;
+      z-index: 1;
+    }
+    .playSoundPosition {
+      position: absolute;
+      top: calc(50% - 35px);
+      left: calc(50% - 35px);
+      z-index: 2;
+    }
+    .enterButton {
+      cursor: pointer;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      position: absolute;
+      top: calc(50% - 20px);
+      right: 10px;
+      z-index: 2;
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        background-color: rgba($color: #000, $alpha: 0.8);
+        border-radius: 100px;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+  .answers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    gap: 20px;
+  }
+}
