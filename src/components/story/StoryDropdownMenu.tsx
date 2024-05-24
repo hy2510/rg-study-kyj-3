@@ -47,7 +47,7 @@ export default function StoryDropdownMenu({
             {menuList.map((menu, i) => {
               return (
                 <div
-                  className={`menu-item ${menu.selected}`}
+                  className={`${EBCSS.menu_item} ${menu.selected}`}
                   onClick={() => {
                     const newList = [...menuList]
 

@@ -81,7 +81,7 @@ export default function TestResult({
             src={`https://wcfresource.a1edu.com/newsystem/image/character/subcharacter/${CHARACTER}_10.png`}
             alt=""
           />
-          <div style={{ position: 'relative' }}>
+          {/* <div style={{ position: 'relative' }}>
             <div
               style={{
                 position: 'absolute',
@@ -91,7 +91,7 @@ export default function TestResult({
             >
               <LottieScrollDownAni />
             </div>
-          </div>
+          </div> */}
         </div>
 
         {passMark && <div className={style.passmark}>Passmark: {passMark}</div>}

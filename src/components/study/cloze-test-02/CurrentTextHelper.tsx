@@ -9,27 +9,29 @@ export default function CurrentTextHelper({
   correctText,
   changeCurrentInputWidth,
 }: CurrentTextHelperProps) {
-  const currenHelperRef = useRef<HTMLSpanElement>(null)
+  const currenHelperRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (currenHelperRef.current) {
-      changeCurrentInputWidth(currenHelperRef.current.offsetWidth)
+      changeCurrentInputWidth(currenHelperRef.current.clientWidth)
     }
-  }, [])
+  }, [currenHelperRef])
 
   return (
-    <span
+    <div
       ref={currenHelperRef}
       style={{
         display: 'block',
+        fontFamily: '"Rg-B", sans-serif',
+        fontSize: '1em',
         color: 'transparent',
         position: 'absolute',
         top: 0,
         left: 0,
-        zIndex: '-1',
+        zIndex: '1',
       }}
     >
       {correctText}
-    </span>
+    </div>
   )
 }

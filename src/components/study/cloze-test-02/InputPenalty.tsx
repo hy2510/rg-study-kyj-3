@@ -151,7 +151,7 @@ export default function InputPenalty({
                 (inputRefs.current[inputIndex] = el)
               }
               id="textFild"
-              style={{ width: `${currentInputWidth + 4}px` }}
+              style={{ width: `${currentInputWidth}px` }}
               type="text"
               value={value}
               onKeyDown={(e) => onKeydownHandler(e)}
@@ -184,7 +184,7 @@ export default function InputPenalty({
                   ref={(el: HTMLInputElement) =>
                     (inputRefs.current[inputIndex] = el)
                   }
-                  style={{ width: `${inputWidth + 4}px` }}
+                  style={{ width: `${inputWidth}px` }}
                   disabled
                 />
               </span>

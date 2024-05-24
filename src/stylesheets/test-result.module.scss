@@ -39,7 +39,7 @@
   }
   .wrongAnswers {
     width: 100%;
-    background-color: rgba($color: #000, $alpha: 0.1);
+    // background-color: rgba($color: #000, $alpha: 0.1);
     border-radius: 15px;
     display: grid;
     gap: 15px;
@@ -163,7 +163,7 @@
   .container {
     width: 370px;
     min-height: 200px;
-    max-height: 30vh;
+    max-height: 45vh;
     overflow-y: scroll;
     overflow-x: hidden;
     display: flex;

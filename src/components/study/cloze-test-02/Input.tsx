@@ -164,7 +164,7 @@ export default function Input({
   }
 
   return (
-    <span
+    <div
       className={`${style.answerBox} ${
         currentIndex === inputIndex ? style.currentOrder : ''
       }`}
@@ -172,14 +172,14 @@ export default function Input({
       {currentIndex === inputIndex ? (
         <>
           {/* 풀어야하는 인풋인 경우 */}
-          <span className={style.currentInput}>
+          <div className={style.currentInput} style={{width: 'fit-contents'}}>
             <input
               ref={(el: HTMLInputElement) =>
                 (inputRefs.current[inputIndex] = el)
               }
               id="textFild"
               style={{
-                width: `${currentInputWidth + 4}px`,
+                width: `${currentInputWidth}px`,
               }}
               type="text"
               value={inputValues[currentIndex].text}
@@ -202,23 +202,23 @@ export default function Input({
                 changeCurrentInputWidth={changeCurrentInputWidth}
               />
             )}
-          </span>
+          </div>
         </>
       ) : (
         <>
           {/* 풀어야하는 인풋이 아닌 경우 */}
-          <span className={style.otherInput}>
+          <div className={style.otherInput} style={{width: 'fit-contents'}}>
             <input
               ref={(el: HTMLInputElement) =>
                 (inputRefs.current[inputIndex] = el)
               }
               style={{
-                width: `${inputWidth + 4}px`,
+                width: `${inputWidth}px`,
               }}
               value={inputValues[inputIndex].text}
               disabled
             />
-          </span>
+          </div>
           {inputWidth <= 0 && (
             <TextHelper
               correctText={correctText}
@@ -227,6 +227,6 @@ export default function Input({
           )}
         </>
       )}
-    </span>
+    </div>
   )
 }

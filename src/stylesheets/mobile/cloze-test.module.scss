@@ -115,7 +115,7 @@
 
 .reviewAnswer {
   padding: 5px 10px;
-  border: 2px dotted #ccc;
+  border: 2px solid #ccc;
   border-radius: 10px;
   color: #ccc;
   background-color: #fff;
@@ -184,7 +184,7 @@
     border-radius: 10px;
     color: #ccc;
     background-color: #fff;
-    display: inline-block;
+    // display: inline-block;
     &.currentOrder {
       background-color: rgba($color: #fff, $alpha: 1);
       animation: 1s infinite alternate blink;
@@ -211,15 +211,16 @@
       background-color: transparent;
       border: none;
       font-family: 'Rg-B', sans-serif;
-      font-size: 1em;
+      font-size: 0.99em;
       padding: 0 !important;
       letter-spacing: -0.8px;
     }
     .currentInput,
     .otherInput {
       display: flex;
-      height: 40px;
+      min-height: 38px;
       align-items: center;
+      letter-spacing: -0.8px;
       .enterButton {
         cursor: pointer;
         display: inline-block;

@@ -56,7 +56,7 @@ export default function PopupPBookRating() {
                 }
               }}
             >
-              학습하기
+              퀴즈 풀기
             </button>
           </div>
         </div>

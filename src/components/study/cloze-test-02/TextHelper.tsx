@@ -9,19 +9,22 @@ export default function TextHelper({
   correctText,
   changeInputWidth,
 }: TextHelperProps) {
-  const helperRef = useRef<HTMLSpanElement>(null)
+  const helperRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (helperRef.current) {
-      changeInputWidth(helperRef.current.offsetWidth)
-    }
-  }, [])
+      changeInputWidth(helperRef.current.clientWidth)
+    } 
+    
+  },[helperRef])
 
   return (
-    <span
+    <div
       ref={helperRef}
       style={{
         display: 'block',
+        fontFamily: '"Rg-B", sans-serif',
+        fontSize: '1em',
         color: 'transparent',
         position: 'absolute',
         top: 0,
@@ -30,6 +33,6 @@ export default function TextHelper({
       }}
     >
       {correctText}
-    </span>
+    </div>
   )
 }

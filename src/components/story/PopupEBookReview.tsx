@@ -71,7 +71,7 @@ export default function PopupEBookReview({
                 }
               }}
             >
-              학습하기
+              퀴즈 풀기
             </button>
           </div>
         </div>
