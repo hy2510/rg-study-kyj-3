@@ -37,7 +37,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 10;
   width: calc(100% - 40px);
   padding: 0 20px;
   display: flex;
@@ -50,6 +50,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba($color: #000, $alpha: 0.5);
+    border-radius: 100px;
   }
 }
 
@@ -246,6 +248,25 @@
     z-index: 2;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
+  @media (orientation: landscape) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 20px;
+      padding-bottom: calc(20px + env(safe-area-inset-bottom));
+      background-color: #fff;
+      position: absolute;
+      width: calc(100% - 40px);
+      height: 70%;
+      border-radius: 20px 20px 0 0;
+      left: 0;
+      bottom: 0;
+      z-index: 2;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      overflow: scroll;
+    }
+  }
   .light_box {
     position: absolute;
     top: 0;
@@ -274,7 +295,8 @@
   width: calc(100% - 40px);
   height: 56px;
   color: #fff;
-  background-color: #111111;
+  // background-color: #111111;
+  background-color: rgba($color: #000, $alpha: 0.5);
   padding: 0 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -315,6 +337,7 @@
       justify-content: center;
       border-radius: 100px;
       cursor: pointer;
+      opacity: 0.2;
       &:active {
         transform: scale(0.9);
       }
@@ -359,11 +382,43 @@
     }
     .menu_button {
       cursor: pointer;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+  }
+  @media (orientation: landscape) {
+    .landscape {
+      position: fixed;
+      z-index: -1;
+    }
+    .read_mode_button {
+      left: 10px;
+      bottom: 10px;
+    }
+    .backward {
+      top: calc(50% - 20px);
+      left: 10px;
+      opacity: 0.2;
+    }
+    .play {
+      right: 15px;
+      bottom: 15px;
+    }
+    .forward {
+      top: calc(50% - 20px);
+      right: 10px;
+      opacity: 0.2;
+    }
+    .word_button {
+      right: 10px;
+      top: 50px;
+    }
+    .menu_button {
+      top: 10px;
+      right: 10px;
     }
   }
   &.mobile {
@@ -405,21 +460,25 @@
   }
   .left_arrow {
     button {
-      left: 0;
+      // left: 0;
+      left: -10px;
       justify-content: start;
-      padding-left: 12px;
+      // padding-left: 12px;
+      padding-left: 0;
     }
   }
   .right_arrow {
     button {
-      right: 0;
+      // right: 0;
+      right: -10px;
       justify-content: end;
-      padding-right: 12px;
+      // padding-right: 12px;
+      padding-right: 0;
     }
   }
 }
 
-// eBook 콘텐츠 PC
+// eBook 콘텐츠 PC 가로
 .ebook_body_pc {
   margin: auto;
   height: calc(100vh - 80px);
@@ -431,11 +490,28 @@
       z-index: 3;
       display: flex;
       flex-direction: row;
-      width: fit-content;
+      // width: fit-content;
+      width: 100vw;
+      max-width: fit-content;
       margin: 20px auto 0 auto;
       transform-origin: top;
       border-radius: 8px;
-      overflow: hidden;
+      // overflow: hidden;
+      justify-content: center;
+    }
+  }
+}
+
+// eBook 콘텐츠 PC 세로
+@media (orientation: portrait) {
+  .ebook_body_pc {
+    height: calc(100vh - 60px);
+    .ebook_contents {
+      display: flex;
+      align-items: center;
+      .pages {
+        transform-origin: center;
+      }
     }
   }
 }
@@ -454,6 +530,17 @@
   overflow: hidden;
 }
 
+// eBook 콘텐츠 모바일 가로
+@media (orientation: landscape) {
+  .ebook_body_mobile_p {
+    height: calc(
+    100% - env(safe-area-inset-bottom) - env(safe-area-inset-top));
+    .container {
+      display: flex;
+    }
+  }
+}
+
 // eBook 단어장 > 단어 리스트
 .ebook_voca_list {
   display: flex;
@@ -467,13 +554,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       .word {
-        font-size: 1.8em;
+        font-size: 1.6em;
       }
     }
     .mean {
       font-size: 1.2em;
+      font-weight: 500;
       color: #999;
     }
   }
@@ -493,7 +581,7 @@
     width: 100%;
     max-width: 320px;
     height: calc(
-      100% - 29px - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+      100% - 25px - env(safe-area-inset-top) - env(safe-area-inset-bottom)
     );
     background-color: #fff;
     margin-left: auto;
@@ -503,18 +591,19 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 30px 0 0 30px;
-    border-left: 2px solid #333;
-    border-top: 2px solid #333;
-    border-bottom: 2px solid #333;
+    // border-radius: 30px 0 0 30px;
+    // border-left: 2px solid #333;
+    // border-top: 2px solid #333;
+    // border-bottom: 2px solid #333;
     box-shadow: -10px 0 50px rgba(0, 0, 0, 0.3);
     overflow-y: scroll;
     .ebook_vocabulary_note_area_top {
+      padding-top: 20px;
       .close_vocabulary_note {
         display: flex;
         justify-content: end;
         gap: 10px;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
         .btn_delete {
           cursor: pointer;
           -webkit-tap-highlight-color: transparent !important;
@@ -523,6 +612,9 @@
           align-items: center;
           width: 50px;
           height: 50px;
+          position: absolute;
+          top: 10px;
+          right: 10px;
         }
         .btn_print {
           cursor: pointer;
@@ -531,6 +623,9 @@
           align-items: center;
           width: 50px;
           height: 50px;
+          position: absolute;
+          top: 10px;
+          right: 60px;
         }
       }
       .book_info {

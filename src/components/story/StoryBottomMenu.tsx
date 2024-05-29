@@ -23,6 +23,11 @@ import icon_word from '@assets/images/ebook/icon_word.svg'
 // 전체 화면 관련 이미지
 import icon_full_screen from '@assets/images/ebook/icon_full_screen.svg'
 import icon_full_screen_out from '@assets/images/ebook/icon_full_screen_out.svg'
+import icon_menu from '@assets/images/ebook/icon_menu.svg'
+import MobileDetect from 'mobile-detect'
+
+// 디바이스 정보 (여기서는 태블릿을 구분하는 용도로 사용)
+const md = new MobileDetect(navigator.userAgent)
 
 type StoryBottomMenuProps = {
   progressWidth: number
@@ -40,6 +45,7 @@ type StoryBottomMenuProps = {
   pauseAudio: () => void
   resumeAudio: () => void
   changeVocaOpen: (state: boolean) => void
+  changeSideMenu: (state: boolean) => void
 }
 
 export default function StoryBottomMenu({
@@ -58,6 +64,7 @@ export default function StoryBottomMenu({
   pauseAudio,
   resumeAudio,
   changeVocaOpen,
+  changeSideMenu,
 }: StoryBottomMenuProps) {
   const { handler } = useContext(AppContext) as AppContextProps
 
@@ -159,6 +166,15 @@ export default function StoryBottomMenu({
             <img src={icon_word} width={28} height={28} alt="" />
           </div>
           <div
+            className={EBCSS.menu_button}
+            onClick={() => {
+              changeSideMenu(true)
+            }}
+          >
+            <img src={icon_menu} width={24} height={24} alt="" />
+          </div>
+          <div
+            style={{display: md.tablet() ? 'none' : 'flex'}}
             className={EBCSS.full_screen_button}
             onClick={() => {
               if (!isFullScreen) {
@@ -174,6 +190,8 @@ export default function StoryBottomMenu({
               <img src={icon_full_screen} width={20} height={20} alt="" />
             )}
           </div>
+          {/* <div style={{display: md.tablet() ? 'flex' : 'none'}}>
+          </div> */}
         </div>
       </div>
     </>

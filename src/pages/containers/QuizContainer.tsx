@@ -44,6 +44,11 @@ import WritingActivity2 from '@pages/study/WritingActivity2'
 
 import '@stylesheets/theme.scss'
 import quizTemplateCSS from '@stylesheets/quiz-template.module.scss'
+import quizTemplateCSSMobile from '@stylesheets/mobile/quiz-template.module.scss'
+
+import MobileDetect from 'mobile-detect'
+
+const md = new MobileDetect(navigator.userAgent);
 
 export interface QuizContainerChildProps {
   currentStep: number
@@ -228,7 +233,7 @@ const QuizContainer: React.FC<{}> = (props) => {
   }
 
   return (
-    <div className={`${quizTemplateCSS.quizTemplate} ${theme}`}>
+    <div className={`${md.phone() ? quizTemplateCSSMobile.quizTemplate : quizTemplateCSS.quizTemplate} ${theme}`}>
       {component}
     </div>
   )

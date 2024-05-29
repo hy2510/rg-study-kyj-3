@@ -72,6 +72,8 @@ export default function StoryBottomMenuMobile({
     setBottomLeftMenuOpen(!isBottomLeftMenuOpen)
   }
 
+  const isLandscape = window.matchMedia('(orientation: landscape)').matches
+
   return (
     <>
       {/* 프로그레스바 */}
@@ -87,7 +89,7 @@ export default function StoryBottomMenuMobile({
         {/* 플레이바 > 왼쪽 */}
         <div className={style.ebook_play_bar_pc_area_l}>
           <div
-            className={style.read_mode_button}
+            className={`${style.read_mode_button} ${isLandscape && style.landscape}`}
             onClick={() => {
               toggleBottomLeft()
             }}
@@ -111,7 +113,7 @@ export default function StoryBottomMenuMobile({
         <div className={style.ebook_play_bar_pc_area_c}>
           {handler.storyMode === 'Story' && (
             <div
-              className={style.backward}
+              className={`${style.backward} ${isLandscape && style.landscape}`}
               onClick={() => {
                 turnPageLeft()
               }}
@@ -121,7 +123,7 @@ export default function StoryBottomMenuMobile({
           )}
 
           <div
-            className={style.play}
+            className={`${style.play} ${isLandscape && style.landscape}`}
             onClick={() => {
               switch (playState) {
                 case 'play':
@@ -147,7 +149,7 @@ export default function StoryBottomMenuMobile({
 
           {handler.storyMode === 'Story' && (
             <div
-              className={style.forward}
+              className={`${style.forward} ${isLandscape && style.landscape}`}
               onClick={() => {
                 turnPageRight()
               }}
@@ -160,7 +162,7 @@ export default function StoryBottomMenuMobile({
         {/* 플레이바 > 오른쪽 */}
         <div className={style.ebook_play_bar_pc_area_r}>
           <div
-            className={style.word_button}
+            className={`${style.word_button} ${isLandscape && style.landscape}`}
             onTouchEnd={() => {
               changeVocaOpen(true)
             }}
@@ -169,7 +171,7 @@ export default function StoryBottomMenuMobile({
           </div>
 
           <div
-            className={style.menu_button}
+            className={`${style.menu_button} ${isLandscape && style.landscape}`}
             onClick={() => {
               changeSideMenu(true)
             }}

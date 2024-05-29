@@ -16,7 +16,9 @@ import StoryMoblie from '@pages/story/StoryMobile'
 
 import PopupEBookRating from '@components/story/PopupEBookRating'
 import MovieBook from '@components/story/MovieBook'
+import MobileDetect from 'mobile-detect'
 
+const md = new MobileDetect(navigator.userAgent)
 const isMobile = useDeviceDetection()
 
 export default function EBook() {
@@ -50,12 +52,13 @@ export default function EBook() {
 
   // 창 크기가 변경되거나 가로/세로가 변경되는 등의 행위가 일어나면
   useEffect(() => {
-    console.log(isMobile)
+    // console.log(isMobile)
     const resizeHandler = () => {
-      setWindowHeight(window.innerHeight)
-      if (isMobile) {
+      if (md.phone()) {
+        setWindowHeight(screen.height)
         setPageScale(screen.width / imgSize.width)
       } else {
+        setWindowHeight(window.innerHeight)
         setPageScale((window.innerHeight / imgSize.height) * 0.9)
       }
     }
@@ -100,7 +103,7 @@ export default function EBook() {
         }}
       >
         {/* 웹인지 모바일인지 */}
-        {!isMobile ? (
+        {!md.phone() ? (
           <StoryPC
             isRatingShow={isRatingShow}
             isMovieShow={isMovieShow}

@@ -177,7 +177,7 @@ export default function StoryPC({
   return (
     <>
       {/* header */}
-      <StoryHeader changeSideMenu={changeSideMenu} />
+      {/* <StoryHeader changeSideMenu={changeSideMenu} /> */}
 
       {/* body */}
       <StoryBody>
@@ -233,6 +233,7 @@ export default function StoryPC({
         pauseAudio={pauseAudio}
         resumeAudio={resumeAudio}
         changeVocaOpen={changeVocaOpen}
+        changeSideMenu={changeSideMenu}
       />
 
       {/* 사이드 메뉴 */}

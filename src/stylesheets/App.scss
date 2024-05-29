@@ -17,6 +17,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
+  min-height: 100dvh;
   background-color: #1a1a1a;
   @media screen and (max-width: 375px) {
     font-size: 15px;

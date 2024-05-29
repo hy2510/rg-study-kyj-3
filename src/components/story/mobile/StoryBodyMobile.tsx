@@ -16,9 +16,13 @@ export default function StoryBodyMobile({
   const bookLevel =
     useContext(AppContext)?.bookInfo?.BookLevel?.substring(0, 1) || 'K'
 
+  const isLandscape = window.matchMedia('(orientation: landscape)').matches
+
   const pageWidth = bookLevel === 'K' ? 480 : 525
+  const pageHeight = 750
 
   const containerScale = window.innerWidth / pageWidth
+  const containerPortraitScale = (screen.height) / pageHeight
 
   return (
     <div
@@ -26,7 +30,9 @@ export default function StoryBodyMobile({
       onTouchStart={(e) => onTouchStartHandler(e)}
       onTouchEnd={(e) => onTouchEndHandler(e)}
     >
-      <div style={{ transform: `scale(${containerScale})` }}>{children}</div>
+      <div className={style.container} style={{ transform: `scale(${isLandscape ? containerPortraitScale : containerScale})` }}>
+        {children}
+      </div>
     </div>
   )
 }
