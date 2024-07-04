@@ -1,6 +1,7 @@
 .ebook {
   position: relative;
   width: 100vw;
+  height: 100dvh;
   background-blend-mode: multiply;
   background-color: rgba(0, 0, 0, 0.7);
   overflow: hidden;
@@ -481,7 +482,7 @@
 // eBook 콘텐츠 PC 가로
 .ebook_body_pc {
   margin: auto;
-  height: calc(100vh - 80px);
+  height: calc(100dvh - 80px);
   z-index: 3;
   .ebook_contents {
     height: 100%;
@@ -505,7 +506,7 @@
 // eBook 콘텐츠 PC 세로
 @media (orientation: portrait) {
   .ebook_body_pc {
-    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
     .ebook_contents {
       display: flex;
       align-items: center;
@@ -521,7 +522,7 @@
   height: calc(
     100% - 60px - env(safe-area-inset-bottom) - env(safe-area-inset-top)
   );
-  padding-top: env(safe-area-inset-top);
+  // padding-top: env(safe-area-inset-top);
   display: flex;
   flex-direction: column;
   justify-content: center;

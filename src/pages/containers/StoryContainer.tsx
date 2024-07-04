@@ -55,7 +55,7 @@ export default function EBook() {
     // console.log(isMobile)
     const resizeHandler = () => {
       if (md.phone()) {
-        setWindowHeight(screen.height)
+        setWindowHeight(window.innerHeight)
         setPageScale(screen.width / imgSize.width)
       } else {
         setWindowHeight(window.innerHeight)
